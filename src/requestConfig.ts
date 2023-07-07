@@ -91,7 +91,7 @@ export const errorConfig: RequestConfig = {
       // 拦截请求配置，进行个性化处理。
       const token = localStorage.getItem("JWT_TOKEN")
       if (config.url !== '/login') {
-        const headers = { ...config.headers, Authorization: token}
+        const headers = { ...config.headers, Authorization: "Bearer " + token}
         return { ...config, headers }
       }
       return { ...config };

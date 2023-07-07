@@ -94,6 +94,7 @@ const Login: React.FC = () => {
       });
       if (res.code === 0) {
         const defaultLoginSuccessMessage = '登录成功！';
+        localStorage.setItem("JWT_TOKEN", res.data.token)
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
