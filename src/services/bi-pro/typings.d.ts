@@ -20,7 +20,7 @@ declare namespace API {
     id?: string;
     userAccount?: string;
     userName?: string;
-    userRole?: string;
     userAvatar?: string;
+    userRole?: string;
   }
 }

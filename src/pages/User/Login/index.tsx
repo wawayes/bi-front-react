@@ -2,14 +2,12 @@ import Footer from '@/components/Footer';
 import {
   AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
   TaobaoCircleOutlined,
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
@@ -187,9 +185,11 @@ const Login: React.FC = () => {
               marginBottom: 24,
             }}
           >
-            <ProFormCheckbox noStyle name="autoLogin">
-              自动登录
-            </ProFormCheckbox>
+            <a
+              href="https://github.com/wawayes/bi-chatgpt-golang-python"
+            >
+              朋友，赏个Star鼓励一下
+            </a>
             <a
               style={{
                 float: 'right',

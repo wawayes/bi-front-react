@@ -1,9 +1,7 @@
 ﻿import type { RequestOptions } from '@@/plugin-request/request';
 import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
-import {getCookieValue, getRefreshToken} from '@/services/bi-pro/UserApi'
-import {Cookie} from "tough-cookie";
-import {useEffect} from "react";
+import {getCookieValue} from "@/services/cookie";
 
 // 错误处理方案： 错误类型
 enum ErrorShowType {
