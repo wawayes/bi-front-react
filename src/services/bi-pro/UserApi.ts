@@ -22,6 +22,14 @@ export async function postLogin(body: API.LoginRequest, options?: { [key: string
   });
 }
 
+/** Logout GET /logout */
+export async function getLogout(options?: { [key: string]: any }) {
+  return request<any>('/logout', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
 /** RefreshToken GET /refresh_token */
 export async function getRefreshToken(options?: { [key: string]: any }) {
   return request<any>('/refresh_token', {
@@ -40,4 +48,18 @@ export async function postRegister(body: API.RegisterRequest, options?: { [key: 
     data: body,
     ...(options || {}),
   });
+}
+
+export function getCookieValue(cookieName: string) {
+  const cookieString = document.cookie;
+  const cookies = cookieString.split('; ');
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].split('=');
+    if (cookie[0] === cookieName) {
+      return cookie[1];
+    }
+  }
+
+  return null;
 }

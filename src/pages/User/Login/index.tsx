@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
@@ -20,7 +19,6 @@ import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
 import {getCurrent, postLogin} from "@/services/bi-pro/UserApi";
-import {undefined} from "@umijs/utils/compiled/zod";
 const ActionIcons = () => {
   const langClassName = useEmotionCss(({ token }) => {
     return {
@@ -92,7 +90,7 @@ const Login: React.FC = () => {
       });
       if (res.code === 0) {
         const defaultLoginSuccessMessage = '登录成功！';
-        localStorage.setItem("JWT_TOKEN", res.data.token)
+        // localStorage.setItem("JWT_TOKEN", res.data.token)
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
@@ -108,7 +106,6 @@ const Login: React.FC = () => {
       message.error(defaultLoginFailureMessage);
     }
   };
-  const { type: loginType } = userLoginState;
   return (
     <div className={containerClassName}>
       <Helmet>

@@ -10,7 +10,6 @@ export default [
       { path: '/admin/sub-page', name: "Admin-SubPage", component: './Admin' },
     ],
   },
-  { icon: 'table', name: "表单页", path: '/list', component: './TableList' },
   { path: '/', redirect: '/welcome' },
   { path: '*', layout: false, component: './404' },
 ];

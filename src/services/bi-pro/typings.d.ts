@@ -2,7 +2,6 @@ declare namespace API {
   type LoginRequest = {
     userAccount?: string;
     userPassword?: string;
-    type?: string;
   };
 
   type RegisterRequest = {
@@ -21,9 +20,7 @@ declare namespace API {
     id?: string;
     userAccount?: string;
     userName?: string;
-    userAvatar?: string;
     userRole?: string;
-  };
-
+    userAvatar?: string;
+  }
 }
-

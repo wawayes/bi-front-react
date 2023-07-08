@@ -1,6 +1,9 @@
 ﻿import type { RequestOptions } from '@@/plugin-request/request';
 import type { RequestConfig } from '@umijs/max';
 import { message, notification } from 'antd';
+import {getCookieValue, getRefreshToken} from '@/services/bi-pro/UserApi'
+import {Cookie} from "tough-cookie";
+import {useEffect} from "react";
 
 // 错误处理方案： 错误类型
 enum ErrorShowType {
@@ -18,7 +21,6 @@ interface ResponseStructure {
   errorMessage?: string;
   showType?: ErrorShowType;
 }
-
 /**
  * @name 错误处理
  * pro 自带的错误处理， 可以在这里做自己的改动
@@ -89,7 +91,8 @@ export const errorConfig: RequestConfig = {
   requestInterceptors: [
     (config: RequestOptions) => {
       // 拦截请求配置，进行个性化处理。
-      const token = localStorage.getItem("JWT_TOKEN")
+      const token = getCookieValue("jwt")
+      console.log(token)
       if (config.url !== '/login') {
         const headers = { ...config.headers, Authorization: "Bearer " + token}
         return { ...config, headers }
@@ -102,14 +105,15 @@ export const errorConfig: RequestConfig = {
   responseInterceptors: [
     (response) => {
       // 拦截响应数据，进行个性化处理
-      const { data } = response as unknown as ResponseStructure;
-
-      if (data?.code !== 0) {
+      const { code } = response as API.Response;
+      if (code !== 0) {
         message.error('请求失败！');
       }
       return response;
     },
   ],
 
-  baseURL: "http://localhost:8888/api/v1/"
+  baseURL: "http://localhost:8888/api/v1/",
+
+  withCredentials: true
 };
