@@ -35,7 +35,7 @@ const Bi: React.FC = () => {
         rules={[{ required: true, message: '选一个，别空着！' }]}
       />
       <ProFormUploadDragger
-        max={5}
+        max={3}
         label="Dragger/Upload"
         name="dragger"
         width={1024}
@@ -44,7 +44,7 @@ const Bi: React.FC = () => {
           multiple: true, // 批量上传
           listType: 'picture-card'
         }}
-        extra="上传您需要进行分析的文件，支持docx/pdf/csv/xlsx,最多上传3个"
+        extra="上传您需要进行分析的csv/xlsx文件,最多上传三个，支持整合分析"
         rules={[{ required: true, message: '选一个，别空着！' }]}
       />
       </ProFormGroup>
