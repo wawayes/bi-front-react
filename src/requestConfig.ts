@@ -92,7 +92,6 @@ export const errorConfig: RequestConfig = {
     (config: RequestOptions) => {
       // 拦截请求配置，进行个性化处理。
       const token = getCookieValue("jwt")
-      console.log(token)
       if (config.url !== '/login') {
         const headers = { ...config.headers, Authorization: "Bearer " + token}
         return { ...config, headers }
@@ -103,14 +102,14 @@ export const errorConfig: RequestConfig = {
 
   // 响应拦截器
   responseInterceptors: [
-    (response) => {
-      // 拦截响应数据，进行个性化处理
-      const { code } = response as API.Response;
-      if (code !== 0) {
-        message.error('请求失败！');
-      }
-      return response;
-    },
+    // (response) => {
+    //   // 拦截响应数据，进行个性化处理
+    //   const { data } = response as ResponseStructure;
+    //   if (data !== 0) {
+    //     message.error('请求失败！');
+    //   }
+    //   return response;
+    // },
   ],
 
   baseURL: "http://localhost:8888/api/v1/",
