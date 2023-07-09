@@ -114,7 +114,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 Ant Design Pro
+            Bi Pro
           </div>
           <p
             style={{
@@ -126,8 +126,8 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            Ant Design Pro 是一个整合了 umi，Ant Design 和 ProComponents
-            的脚手架方案。致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
+            Bi Pro ......
+            商业智能（BusinessIntelligence，简称：BI），又称商业智慧或商务智能，指用现代数据仓库技术、线上分析处理技术、数据挖掘和数据展现技术进行数据分析以实现商业价值。
           </p>
           <div
             style={{

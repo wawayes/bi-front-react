@@ -1,4 +1,18 @@
 declare namespace API {
+  type BiResp = {
+    genChart?: string;
+    genResult?: string;
+  };
+
+  type CurrentUser = {
+    /** 主键ID */
+    id?: string;
+    userAccount?: string;
+    userAvatar?: string;
+    userName?: string;
+    userRole?: string;
+  };
+
   type LoginRequest = {
     userAccount?: string;
     userPassword?: string;
@@ -15,12 +29,4 @@ declare namespace API {
     data?: any;
     msg?: string;
   };
-
-  type CurrentUser = {
-    id?: string;
-    userAccount?: string;
-    userName?: string;
-    userAvatar?: string;
-    userRole?: string;
-  }
 }

@@ -8,13 +8,13 @@ export async function postGen(
     chartType?: string;
     goal?: string;
   },
-  multipartFile?: File,
+  file?: File,
   options?: { [key: string]: any },
 ) {
   const formData = new FormData();
 
-  if (multipartFile) {
-    formData.append('file', multipartFile);
+  if (file) {
+    formData.append('file', file);
   }
 
   Object.keys(body).forEach((ele) => {
