@@ -4,11 +4,11 @@ export default [
   { path: '/bi', name:"分析页", icon: 'BarChartOutlined', component: './Bi' },
   {
     path: '/admin',
+    name: '管理页',
     icon: 'crown',
     access: 'canAdmin',
     routes: [
-      { path: '/admin', name: "Admin", redirect: '/admin/sub-page' },
-      { path: '/admin/sub-page', name: "Admin-SubPage", component: './Admin' },
+      { path: '/admin/table', name: "用户-图表", icon: "BarChartOutlined", component: './Table' },
     ],
   },
   { path: '/', redirect: '/welcome' },

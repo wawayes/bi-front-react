@@ -6,8 +6,6 @@ import {values} from "lodash";
 import {postChartGen} from "@/services/bi-pro/ChartApi";
 import {message} from "antd/lib";
 import ReactECharts from 'echarts-for-react';
-import ProCardDivider from "@ant-design/pro-card/es/components/Divider";
-// import ProCard from "@ant-design/pro-card";
 const Bi: React.FC = () => {
   const [chart, setChart] = useState<API.Response>();
   const [option, setOption] = useState<API.Response>();
@@ -104,13 +102,13 @@ const Bi: React.FC = () => {
       </ProForm>
       <Divider />
       <Card title="分析结论">
-        {chart?.genResult ?? <div>请先在左侧进行提交</div>}
+        {chart?.genResult ?? <div>请先进行提交</div>}
         <Spin spinning={submitting}/>
       </Card>
       <Divider />
       <Card title="可视化图表">
         {
-          option ? <ReactECharts option={option} /> : <div>请先在左侧进行提交</div>
+          option ? <ReactECharts option={option} /> : <div>请先进行提交</div>
         }
         <Spin spinning={submitting}/>
       </Card>
@@ -119,8 +117,4 @@ const Bi: React.FC = () => {
 
 );
 };
-
-import ProCard from "@ant-design/pro-card";
-import {res} from "pino-std-serializers";
-
 export default Bi;
