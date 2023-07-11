@@ -8,7 +8,7 @@ import { history, Link } from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
 import { errorConfig } from './requestConfig';
-import {getCurrent} from "@/services/bi-pro/UserApi";
+import {getUserCurrent} from "@/services/bi-pro/UserApi";
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
@@ -23,7 +23,7 @@ export async function getInitialState(): Promise<{
 }> {
   const fetchUserInfo = async () => {
     try {
-      const res = await getCurrent();
+      const res = await getUserCurrent();
       if (res.code === 0) {
         return res.data;
       }

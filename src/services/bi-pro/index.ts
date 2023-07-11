@@ -5,6 +5,6 @@
 import * as ChartApi from './ChartApi';
 import * as UserApi from './UserApi';
 export default {
-  UserApi,
   ChartApi,
+  UserApi,
 };

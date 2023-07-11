@@ -16,7 +16,7 @@ import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
-import {getCurrent, postLogin} from "@/services/bi-pro/UserApi";
+import {getUserCurrent, postUserLogin} from "@/services/bi-pro/UserApi";
 const ActionIcons = () => {
   const langClassName = useEmotionCss(({ token }) => {
     return {
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
     };
   });
   const fetchUserInfo = async () => {
-    const res = await getCurrent?.();
+    const res = await getUserCurrent?.();
     if (res.code === 0) {
       flushSync(() => {
         setInitialState((s) => ({
@@ -83,25 +83,25 @@ const Login: React.FC = () => {
   const handleSubmit = async (values: API.LoginRequest) => {
     try {
       // 登录
-      const res = await postLogin({
+      const res = await postUserLogin({
         ...values,
       });
+      // console.log("res: ", res)
       if (res.code === 0) {
-        const defaultLoginSuccessMessage = '登录成功！';
-        // localStorage.setItem("JWT_TOKEN", res.data.token)
-        message.success(defaultLoginSuccessMessage);
+        message.success("登录成功！")
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
         history.push(urlParams.get('redirect') || '/');
         return;
+      }else {
+        // console.log("res:", res)
+        message.error(res.msg)
       }
-      console.log(res);
+      // console.log("res:", res);
       // 如果失败去设置用户错误信息
       setUserLoginState(res.msg);
     } catch (error) {
-      const defaultLoginFailureMessage = '登录失败，请重试！';
       console.log(error);
-      message.error(defaultLoginFailureMessage);
     }
   };
   return (

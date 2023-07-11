@@ -4,6 +4,14 @@ declare namespace API {
     genResult?: string;
   };
 
+  type ChartQueryRequest = {
+    chartType?: string;
+    goal?: string;
+    pageNum?: number;
+    pageSize?: number;
+    userId?: string;
+  };
+
   type CurrentUser = {
     /** 主键ID */
     id?: string;

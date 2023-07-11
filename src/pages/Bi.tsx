@@ -3,7 +3,7 @@ import {ProForm, ProFormGroup, ProFormItem, ProFormSelect, ProFormUploadDragger}
 import TextArea from "antd/es/input/TextArea";
 import {Alert, Card, Divider, Space, Spin} from "antd";
 import {values} from "lodash";
-import {postGen} from "@/services/bi-pro/ChartApi";
+import {postChartGen} from "@/services/bi-pro/ChartApi";
 import {message} from "antd/lib";
 import ReactECharts from 'echarts-for-react';
 import ProCardDivider from "@ant-design/pro-card/es/components/Divider";
@@ -28,14 +28,14 @@ const Bi: React.FC = () => {
     console.log("values",values)
     console.log("values.file[0].originFileObj", values.file[0].originFileObj)
     try {
-      const res = await postGen(params, values.file[0].originFileObj);
+      const res = await postChartGen(params, values.file[0].originFileObj);
       if (res.code !== 0) {
-        message.error('分析失败,要不再试一下？');
+        message.error(res.msg);
       } else {
         message.success('分析成功');
         const chartOption = JSON.parse(res.data.genChart ?? '');
         if (!chartOption) {
-          message.error('图表代码解析错误,请再试一次')
+          message.error(res.msg)
         } else {
           setChart(res.data);
           setOption(chartOption);
@@ -121,5 +121,6 @@ const Bi: React.FC = () => {
 };
 
 import ProCard from "@ant-design/pro-card";
+import {res} from "pino-std-serializers";
 
 export default Bi;

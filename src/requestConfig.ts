@@ -90,7 +90,7 @@ export const errorConfig: RequestConfig = {
     (config: RequestOptions) => {
       // 拦截请求配置，进行个性化处理。
       const token = getCookieValue("jwt")
-      if (config.url !== '/login') {
+      if (config.url !== '/user/login') {
         const headers = { ...config.headers, Authorization: "Bearer " + token}
         return { ...config, headers }
       }
