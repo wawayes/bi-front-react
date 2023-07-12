@@ -23,8 +23,8 @@ const Bi: React.FC = () => {
       ...values,
       file: undefined,
     };
-    console.log("values",values)
-    console.log("values.file[0].originFileObj", values.file[0].originFileObj)
+    // console.log("values",values)
+    // console.log("values.file[0].originFileObj", values.file[0].originFileObj)
     try {
       const res = await postChartGen(params, values.file[0].originFileObj);
       if (res.code !== 0) {

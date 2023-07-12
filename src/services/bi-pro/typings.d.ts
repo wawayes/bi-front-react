@@ -7,14 +7,15 @@ declare namespace API {
   type ChartQueryRequest = {
     chartType?: string;
     goal?: string;
+    key?: string;
     pageNum?: number;
     pageSize?: number;
-    userId?: string;
+    userId?: number;
   };
 
   type CurrentUser = {
     /** 主键ID */
-    id?: string;
+    id?: number;
     userAccount?: string;
     userAvatar?: string;
     userName?: string;
@@ -24,6 +25,11 @@ declare namespace API {
   type LoginRequest = {
     userAccount?: string;
     userPassword?: string;
+  };
+
+  type Page = {
+    pageNum?: number;
+    pageSize?: number;
   };
 
   type RegisterRequest = {
@@ -36,5 +42,14 @@ declare namespace API {
     code?: number;
     data?: any;
     msg?: string;
+  };
+
+  type UserChart = {
+    freeCount?: number;
+    id?: number;
+    token?: number;
+    userAccount?: string;
+    userAvatar?: string;
+    userId?: number;
   };
 }

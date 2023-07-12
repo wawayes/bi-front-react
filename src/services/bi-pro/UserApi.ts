@@ -22,7 +22,7 @@ export async function postUserLogin(body: API.LoginRequest, options?: { [key: st
   });
 }
 
-/** Logout GET /user/logout */
+/** List GET /user/logout */
 export async function getUserLogout(options?: { [key: string]: any }) {
   return request<any>('/user/logout', {
     method: 'GET',
